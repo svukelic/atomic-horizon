@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exosuit Tactical Combat</title>
+    <title>Exosuit Tactical Skirmish</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto+Condensed:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto+Condensed:wght@400;700&display=swap');
         
         * {
             margin: 0;
@@ -22,7 +22,7 @@
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background: linear-gradient(180deg, #141414 0%, #0d0d0d 100%);
             border: 2px solid #ff4400;
@@ -47,89 +47,147 @@
             box-shadow: 0 0 20px rgba(255, 68, 0, 0.8);
         }
         
-        .header {
-            background: linear-gradient(135deg, #1a0a00 0%, #2a1a0a 100%);
-            padding: 40px;
-            border-bottom: 3px solid #ff4400;
+        .hero-section {
             position: relative;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 3px solid #ff4400;
+            overflow: hidden;
         }
         
-        .header::after {
-            content: '';
+        .hero-image {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(255, 68, 0, 0.5) 50%, 
-                transparent 100%);
+            bottom: 0;
+            background: linear-gradient(135deg, #1a0a00 0%, #2a1a0a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(255, 68, 0, 0.1) 49%, rgba(255, 68, 0, 0.1) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 68, 0, 0.1) 49%, rgba(255, 68, 0, 0.1) 51%, transparent 52%);
+            background-size: 20px 20px;
+            opacity: 0.3;
+        }
+        
+        .image-placeholder {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1em;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 1;
+            text-align: center;
+            padding: 40px;
+            line-height: 1.8;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.85) 100%);
         }
         
         h1 {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 2.8em;
+            font-size: 3.2em;
             color: #ff6600;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             margin-bottom: 20px;
             text-shadow: 0 0 20px rgba(255, 102, 0, 0.6),
                          0 0 40px rgba(255, 68, 0, 0.4);
         }
         
         .tagline {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #ffffff;
-            margin: 20px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-        
-        .tagline strong {
-            color: #ff4400;
-            text-shadow: 0 0 10px rgba(255, 68, 0, 0.8);
+            font-size: 1.3em;
+            color: #ffaa66;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
         
         .content {
-            padding: 40px;
+            padding: 50px 40px;
         }
         
-        .intro {
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.8em;
+            color: #ff6600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff4400;
+            text-shadow: 0 0 10px rgba(255, 68, 0, 0.5);
+        }
+        
+        .intro-text {
             font-size: 1.15em;
             line-height: 1.8;
             margin-bottom: 30px;
             padding: 25px;
             background: rgba(255, 68, 0, 0.05);
             border-left: 4px solid #ff4400;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
         }
         
-        .hook {
-            font-size: 1.4em;
-            font-weight: 700;
-            color: #ff6600;
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
             margin: 30px 0;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 20px;
-            background: linear-gradient(135deg, rgba(255, 68, 0, 0.1) 0%, rgba(255, 68, 0, 0.05) 100%);
-            border-top: 2px solid #ff4400;
-            border-bottom: 2px solid #ff4400;
-            text-shadow: 0 0 10px rgba(255, 68, 0, 0.6);
         }
         
-        .section-title {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.6em;
-            color: #ff6600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 35px 0 20px 0;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #ff4400;
-            text-shadow: 0 0 10px rgba(255, 68, 0, 0.5);
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .image-block {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            border: 2px solid #ff4400;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(255, 68, 0, 0.1) 49%, rgba(255, 68, 0, 0.1) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 68, 0, 0.1) 49%, rgba(255, 68, 0, 0.1) 51%, transparent 52%);
+            background-size: 20px 20px;
+            opacity: 0.3;
         }
         
         .feature-list {
@@ -138,8 +196,8 @@
         }
         
         .feature-list li {
-            margin: 20px 0;
-            padding: 20px;
+            margin: 15px 0;
+            padding: 18px 20px;
             background: linear-gradient(135deg, rgba(255, 68, 0, 0.08) 0%, rgba(0, 0, 0, 0.2) 100%);
             border-left: 4px solid #ff4400;
             position: relative;
@@ -153,7 +211,7 @@
             top: 50%;
             transform: translateY(-50%);
             color: #ff4400;
-            font-size: 1.5em;
+            font-size: 1.3em;
             text-shadow: 0 0 10px rgba(255, 68, 0, 0.8);
         }
         
@@ -165,150 +223,115 @@
         
         .feature-list strong {
             color: #ff6600;
-            font-size: 1.1em;
+            font-size: 1.05em;
             text-shadow: 0 0 5px rgba(255, 68, 0, 0.4);
         }
         
-        .closing {
-            font-size: 1.2em;
-            line-height: 1.8;
-            margin: 30px 0;
-            padding: 25px;
+        .comparison-section {
             background: linear-gradient(135deg, rgba(255, 68, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+            padding: 30px;
             border: 2px solid rgba(255, 68, 0, 0.3);
-            text-align: center;
-            font-style: italic;
+            margin: 30px 0;
         }
         
         .cta {
             background: linear-gradient(135deg, #ff4400 0%, #cc3300 100%);
             color: #ffffff;
-            padding: 30px;
-            margin: 40px 0 0 0;
+            padding: 40px;
             text-align: center;
-            font-size: 1.5em;
+            font-size: 1.3em;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             border-top: 3px solid #ff6600;
             box-shadow: 0 -5px 30px rgba(255, 68, 0, 0.4),
                         inset 0 0 30px rgba(0, 0, 0, 0.3);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        .cta em {
-            font-style: normal;
-            font-size: 1.2em;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
         }
         
         em {
             color: #ffaa66;
             font-style: italic;
         }
-        
-        .mechanics-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        @media (min-width: 768px) {
-            .mechanics-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        .mechanic-card {
-            background: linear-gradient(135deg, rgba(255, 68, 0, 0.08) 0%, rgba(0, 0, 0, 0.2) 100%);
-            padding: 20px;
-            border-left: 4px solid #ff4400;
-            transition: all 0.3s ease;
-        }
-        
-        .mechanic-card:hover {
-            background: linear-gradient(135deg, rgba(255, 68, 0, 0.12) 0%, rgba(0, 0, 0, 0.3) 100%);
-            border-left-width: 6px;
-            transform: translateX(5px);
-        }
-        
-        .mechanic-card strong {
-            color: #ff6600;
-            font-size: 1.1em;
-            display: block;
-            margin-bottom: 8px;
-            text-shadow: 0 0 5px rgba(255, 68, 0, 0.4);
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Why play this game instead of the others?</h1>
-            <div class="tagline">Because you want to feel <strong>unstoppable until you're not</strong>.</div>
+        <div class="hero-section">
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    [IMAGE PLACEHOLDER]
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1>Exosuit Tactical Skirmish</h1>
+                <p class="tagline">A lightning-fast co-op skirmish game where you drop into hostile territory in a customizable exosuit, fighting through asymmetric scenarios where survival depends on preparation, positioning, and your squad.</p>
+            </div>
         </div>
         
         <div class="content">
-            <div class="intro">
-                You drop into the fight in a customizable exosuit — 1000 kilograms of machine guns, heavy-duty explosives and reinforced steel. You're cutting through infantry like tissue paper, laying waste to enemy positions... until their heavy armor rolls in. Then you're scrambling, bleeding coolant, and praying your squad can cover your escape.
-                <br><br>Unless... you planned for it. You prepared for it — and you watch as your squad rolls in with counter-fire, turning the ambush into a killing field.
+            <div class="section">
+                <div class="section-title">What you do</div>
+                <div class="intro-text">
+                    Each player controls a single exosuit operator. You deploy into missions—blow through infantry positions, breach fortified compounds, take down war machines. When heavy threats arrive, you adapt: use cover, coordinate fire, exploit the terrain. Fast when you're winning, brutal when you're tested.
+                </div>
+                
+                <div class="image-block">
+                    <div class="image-placeholder">
+                        [IMAGE PLACEHOLDER]
+                    </div>
+                </div>
             </div>
             
-            <div class="hook">
-                That moment when overwhelming power meets overwhelming odds?<br><br>That's the game.
+            <div class="section">
+                <div class="section-title">Between missions</div>
+                <div class="two-column">
+                    <div>
+                        <ul class="feature-list">
+                            <li><strong>Your exosuit persists</strong> — swap your weapons, modify your loadout, adapt to a new combat role.</li>
+                            <li><strong>Your operator grows</strong> — track mission log of your actions: victories, failures, and atrocities, thus establishing your reputation</li>
+                        </ul>
+                    </div>
+                    <div class="image-block">
+                        <div class="image-placeholder">
+                            [IMAGE PLACEHOLDER]
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <div class="section-title">Unlike <em>Warhammer 40k</em> or <em>Battletech</em>:</div>
-            
-            <ul class="feature-list">
-                <li><strong>Your suit IS your character</strong> — not a disposable unit. It's your legend. You name it. You wreck it. You rebuild it scarred and meaner.</li>
-                <li><strong>Fast, brutal, decisive</strong> — no codex bloat, no hour-long turns. Drop in. Fight. Extract or die trying.</li>
-                <li><strong>Squad or die</strong> — you're powerful alone, but the game WILL kill you for trying. Survival means tight coordination and covering fire while your reactor screams.</li>
-                <li><strong>The operator power fantasy</strong> — you're Rambo, Schwarzenegger, and John Wick in an Iron Man suit — a one-man army… faced with another army. The challenge is taking down hordes of grunts, fortified military compounds, and massive war machines.</li>
-            </ul>
-            
-            <div class="closing">
-                Every mission writes itself in fire and wreckage.<br><br>Every choice — your loadout, your tactics, your last stand — is yours.
+            <div class="section">
+                <div class="section-title">The game</div>
+                <ul class="feature-list">
+                    <li><strong>60-120 minute co-op scenarios</strong> for 2-5 players</li>
+                    <li><strong>Card-based mechanics</strong> — no rulebook lookups mid-firefight</li>
+                    <li><strong>Gear defines your deck</strong> — your equipment determines your cards and what you bring to the fight</li>
+                    <li><strong>Dice-driven combat</strong> — tactical positioning meets visceral rolling</li>
+                    <li><strong>Asymmetric missions</strong> — you're outnumbered, outgunned, but not outmaneuvered</li>
+                    <li><strong>Mission-based play</strong> — standalone scenarios for quick deployment, or link them into campaigns where your choices persist</li>
+                </ul>
+                
+                <div class="image-block" style="margin-top: 30px;">
+                    <div class="image-placeholder">
+                        [IMAGE PLACEHOLDER]
+                    </div>
+                </div>
             </div>
             
-            <div class="section-title">Core mechanical differences:</div>
-            
-            <div class="mechanics-grid">
-                <div class="mechanic-card">
-                    <strong>Suit customization is the progression system</strong>
-                    You build and modify a specific exosuit over campaigns, not unlock new units or armies. Your gear choices have consequences in every scenario.
-                </div>
-                
-                <div class="mechanic-card">
-                    <strong>Quick turn resolution</strong>
-                    Turns are streamlined and move fast, keeping both players engaged without long downtime between actions.
-                </div>
-                
-                <div class="mechanic-card">
-                    <strong>Lethality is high, durability is tactical</strong>
-                    Cover, positioning, and squad support matter more than stat blocks. A well-placed shot can cripple even heavy units.
-                </div>
-                
-                <div class="mechanic-card">
-                    <strong>Asymmetric scenarios by default</strong>
-                    Missions are built around objectives and survival, not symmetric army-vs-army battles. You're usually outnumbered.
-                </div>
-                
-                <div class="mechanic-card">
-                    <strong>Straightforward card-based rules</strong>
-                    Mechanics are handled through cards, keeping gameplay clear and accessible without complex rulebook lookups or supplemental codices.
-                </div>
-                
-                <div class="mechanic-card">
-                    <strong>Mission-driven narrative progression</strong>
-                    Scenarios link into ongoing narratives where your choices, victories, and losses shape future missions and available resources.
+            <div class="section">
+                <div class="comparison-section">
+                    <div class="section-title">Unlike Warhammer, Infinity or Battletech</div>
+                    <ul class="feature-list">
+                        <li>One exosuit per player, not armies or unit management</li>
+                        <li>60-120 minutes, not 3+ hour sessions</li>
+                        <li>Card-based rules, no codex bloat</li>
+                        <li>Play official or community-built scenarios, or design your own using the modular mission framework</li>
+                    </ul>
                 </div>
             </div>
         </div>
         
         <div class="cta">
-            And one last thing: <em>it's completely free</em><br>rules, cards, scenarios. No paywalls, no starter boxes. Create your loadout and play.
+            <strong>Completely free</strong> — rules, cards, scenarios.<br><br>Order official miniatures, cards, and dice, or follow our improvisation guides to play with what you already own.
         </div>
     </div>
 </body>
